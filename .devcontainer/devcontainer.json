@@ -1,36 +1,24 @@
 {
-    "name": "Dev Container Feature Development",
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
-    "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:4": {
-            "iptablesSwitchAtRuntime": true
-        }
-    },
-    "mounts": [
-        {
-            "source": "codex-in-devcontainer",
-            "target": "/home/node/.codex",
-            "type": "volume"
-        }
-    ],
-    "remoteUser": "node",
-    "updateRemoteUserUID": true,
-    "updateContentCommand": "npm install --global @devcontainers/cli",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "mads-hartmann.bash-ide-vscode"
-            ],
-            "settings": {
-                "json.schemas": [
-                    {
-                        "fileMatch": [
-                            "*/devcontainer-feature.json"
-                        ],
-                        "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
-                    }
-                ]
-            }
-        }
+  "name": "Dev Container Feature Development",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:4": {
+      "iptablesSwitchAtRuntime": true
     }
+  },
+  "remoteUser": "node",
+  "updateContentCommand": "npm install --global @devcontainers/cli",
+  "customizations": {
+    "vscode": {
+      "extensions": ["mads-hartmann.bash-ide-vscode"],
+      "settings": {
+        "json.schemas": [
+          {
+            "fileMatch": ["*/devcontainer-feature.json"],
+            "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
+          }
+        ]
+      }
+    }
+  }
 }
