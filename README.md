@@ -60,6 +60,24 @@ use the Feature in dev containers that you trust. Containers must use the same
 numeric remote-user UID to share files that Codex creates with restrictive
 permissions.
 
+To use a different volume name, override the Feature's `/codex` mount in
+`devcontainer.json`:
+
+```jsonc
+{
+    "features": {
+        "ghcr.io/freopen/devcontainer/codex:1": {}
+    },
+    "mounts": [
+        {
+            "source": "my-codex",
+            "target": "/codex",
+            "type": "volume"
+        }
+    ]
+}
+```
+
 ## Development
 
 Open this repository in its included Dev Container to get Node.js, the Dev
