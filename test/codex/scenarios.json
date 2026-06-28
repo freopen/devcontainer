@@ -3,26 +3,6 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "codex": {}
-        },
-        "mounts": [
-            {
-                "source": "codex-test-non-root",
-                "target": "/codex",
-                "type": "volume"
-            }
-        ]
-    },
-    "root_remote_user": {
-        "image": "debian:bookworm",
-        "features": {
-            "codex": {}
-        },
-        "mounts": [
-            {
-                "source": "codex-test-root",
-                "target": "/codex",
-                "type": "volume"
-            }
-        ]
+        }
     }
 }

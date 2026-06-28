@@ -26,4 +26,3 @@ if id "${REMOTE_USER_NAME}" >/dev/null 2>&1; then
     chown -R "${REMOTE_USER_NAME}:${REMOTE_GROUP_NAME}" "${VOLUME_PATH}"
     chown -h "${REMOTE_USER_NAME}:${REMOTE_GROUP_NAME}" "${CODEX_HOME}"
 fi
-
