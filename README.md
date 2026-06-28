@@ -1,0 +1,80 @@
+# Shared Codex storage Dev Container Feature
+
+This repository provides a Dev Container Feature that installs the Codex VS
+Code extension and persists the remote user's `~/.codex` directory in a Docker
+named volume called `codex`.
+
+The volume is shared by every dev container using the same Docker daemon and
+this Feature. It is not a bind mount, so it remains separate from the host
+user's `~/.codex` directory.
+
+## Usage
+
+### Use Codex in every VS Code dev container
+
+To make the Feature available by default in every dev container you open with
+VS Code, run **Preferences: Open User Settings (JSON)** from the Command
+Palette and add:
+
+```jsonc
+{
+    "dev.containers.defaultFeatures": {
+        "ghcr.io/freopen/devcontainer/codex:1": {}
+    }
+}
+```
+
+This must be a local VS Code user setting, not a workspace or remote setting.
+Rebuild or reopen each dev container after changing it. The Codex extension is
+installed in the container automatically; sign in with your ChatGPT account or
+API key when prompted.
+
+### Use Codex in one project
+
+Alternatively, add the Feature directly to a project's `devcontainer.json`:
+
+```jsonc
+{
+    "features": {
+        "ghcr.io/freopen/devcontainer/codex:1": {}
+    }
+}
+```
+
+Rebuild the dev container after changing its configuration. In either setup,
+the Feature:
+
+1. installs the `openai.chatgpt` Codex extension in VS Code;
+2. mounts the named volume `codex` at `/codex`;
+3. migrates any image-provided `~/.codex` content into `/codex`; and
+4. links the remote user's `~/.codex` to `/codex`.
+
+The named volume can be inspected with:
+
+```sh
+docker volume inspect codex
+```
+
+Because this storage can include credentials and conversation history, only
+use the Feature in dev containers that you trust. Containers must use the same
+numeric remote-user UID to share files that Codex creates with restrictive
+permissions.
+
+## Development
+
+Open this repository in its included Dev Container to get Node.js, the Dev
+Container CLI, and an isolated Docker daemon. Its `node` user's `~/.codex`
+uses the shared `codex` volume without exposing the host's `~/.codex`.
+
+The Feature follows the standard `src/<feature>` layout:
+
+```text
+src/codex/devcontainer-feature.json
+src/codex/install.sh
+```
+
+Run its tests with the Dev Container CLI:
+
+```sh
+devcontainer features test -p . -f codex
+```

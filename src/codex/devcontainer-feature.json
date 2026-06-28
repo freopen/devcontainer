@@ -1,0 +1,28 @@
+{
+    "name": "Shared Codex Storage",
+    "id": "codex",
+    "version": "1.0.0",
+    "description": "Persists the remote user's ~/.codex directory in a named volume shared by dev containers.",
+    "documentationURL": "https://github.com/freopen/devcontainer#readme",
+    "licenseURL": "https://github.com/freopen/devcontainer/blob/main/LICENSE",
+    "keywords": [
+        "codex",
+        "openai",
+        "persistence",
+        "storage"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "openai.chatgpt"
+            ]
+        }
+    },
+    "mounts": [
+        {
+            "source": "codex",
+            "target": "/codex",
+            "type": "volume"
+        }
+    ]
+}

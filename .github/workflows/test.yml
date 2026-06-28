@@ -1,0 +1,19 @@
+name: Test Feature
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test codex Feature
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: devcontainer features test -p . -f codex

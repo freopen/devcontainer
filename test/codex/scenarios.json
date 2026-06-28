@@ -1,0 +1,14 @@
+{
+    "non_root_remote_user": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "codex": {}
+        }
+    },
+    "root_remote_user": {
+        "image": "debian:bookworm",
+        "features": {
+            "codex": {}
+        }
+    }
+}
