@@ -8,12 +8,13 @@
     },
     "mounts": [
         {
-            "source": "codex",
+            "source": "codex-in-devcontainer",
             "target": "/home/node/.codex",
             "type": "volume"
         }
     ],
     "remoteUser": "node",
+    "updateRemoteUserUID": true,
     "updateContentCommand": "npm install --global @devcontainers/cli",
     "customizations": {
         "vscode": {

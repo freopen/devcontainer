@@ -20,7 +20,7 @@
     },
     "mounts": [
         {
-            "source": "codex",
+            "source": "codex-in-devcontainer",
             "target": "/codex",
             "type": "volume"
         }

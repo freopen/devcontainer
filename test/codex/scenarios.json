@@ -4,5 +4,11 @@
         "features": {
             "codex": {}
         }
+    },
+    "root_remote_user": {
+        "image": "debian:bookworm",
+        "features": {
+            "codex": {}
+        }
     }
 }
