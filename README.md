@@ -46,8 +46,7 @@ the Feature:
 
 1. installs the `openai.chatgpt` Codex extension in VS Code;
 2. mounts the named volume `codex` at `/codex`;
-3. migrates any image-provided `~/.codex` content into `/codex`; and
-4. links the remote user's `~/.codex` to `/codex`.
+3. replaces the remote user's `~/.codex` with a link to `/codex`.
 
 The named volume can be inspected with:
 
